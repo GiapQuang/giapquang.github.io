@@ -25,30 +25,54 @@ const IdentityHub = () => {
         className="now-grid"
       >
         <div className="now-content">
-          <h2 className="section-title">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6 }}
+            className="section-title"
+          >
             Hành trình không phải là cuộc đua
             <span> với ai.</span>
             <br />
             Mà là quá trình hoàn thiện bản thân
             <span> mỗi ngày.</span>
-          </h2>
-          <p className="text-large">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-large"
+          >
             Sự tiến bộ không đến từ những bước nhảy vọt ngẫu hứng...
             <br />
             mà đến từ sự <span className="highlight">nỗ lực bền bỉ</span> mỗi
             ngày.
-          </p>
-          <p className="text-large">
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-large"
+          >
             Tốc độ không phải là ưu tiên, không cần là người đi nhanh nhất...
             <br />
             chỉ cần là người <span className="highlight">đi xa nhất.</span>
-          </p>
+          </motion.p>
         </div>
-        <div className="now-moodboard">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+          className="now-moodboard"
+        >
           <div className="mood-item glass philosophy-featured">
             <img src={img4} alt="Identity Portrait" />
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     ),
     now: (
@@ -57,36 +81,62 @@ const IdentityHub = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, x: -20 }}
-        className="now-grid"
+        className="now-zigzag-container"
       >
-        <div className="now-content">
-          <div className="now-item">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="zigzag-row"
+        >
+          <div className="zigzag-text">
             <h3>Cải thiện bản thân</h3>
             <p>
               Không ngừng học hỏi, xây dựng tư duy và nâng cấp kỹ năng mỗi ngày.
             </p>
           </div>
-          <div className="now-item">
+          <div className="zigzag-img glass">
+            <img src={img2} alt="Learn" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="zigzag-row reverse"
+        >
+          <div className="zigzag-text">
             <h3>Duy trì thể thao</h3>
             <p>
               Rèn luyện sức bền và sự kỷ luật thông qua các hoạt động thể chất
               đều đặn.
             </p>
           </div>
-          <div className="now-item">
+          <div className="zigzag-img glass">
+            <img src={img3} alt="Sport" />
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="zigzag-row"
+        >
+          <div className="zigzag-text">
             <h3>Xây dựng giá trị</h3>
             <p>
               Tập trung vào những dự án và kiến thức mang lại giá trị lâu dài.
             </p>
           </div>
-        </div>
-        <div className="now-moodboard">
-          {[img2, img3, img5, img6].map((img, i) => (
-            <div key={i} className="mood-item glass">
-              <img src={img} alt={`Life ${i}`} />
-            </div>
-          ))}
-        </div>
+          <div className="zigzag-img glass">
+            <img src={img5} alt="Value" />
+          </div>
+        </motion.div>
       </motion.div>
     ),
   };

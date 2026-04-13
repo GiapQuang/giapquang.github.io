@@ -3,8 +3,8 @@
 :root {
   --bg-dark: #0a0a0a;
   --bg-secondary: #121212;
-  --accent: #00f0ff;
-  --accent-glow: rgba(0, 240, 255, 0.3);
+  --accent: #06b6d4;
+  --accent-glow: rgba(6, 182, 212, 0.3);
   --text-white: #ffffff;
   --text-muted: #b3b3b3;
   --glass: rgba(255, 255, 255, 0.02);
@@ -29,8 +29,9 @@ body {
   background-color: var(--bg-dark);
   /* Depth Layer: Radial Gradient + Grid */
   background: 
-    radial-gradient(circle at 30% 20%, rgba(0, 240, 255, 0.05), transparent 40%),
-    radial-gradient(circle at 70% 80%, rgba(0, 240, 255, 0.03), transparent 40%),
+    radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.08), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.03), transparent 60%),
     var(--bg-dark);
   color: var(--text-white);
   line-height: 1.8;
@@ -73,7 +74,7 @@ section {
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 2.5rem;
-  line-height: 1.1;
+  line-height: 1.4;
   font-weight: 700;
 }
 
@@ -127,7 +128,7 @@ section {
   object-fit: cover;
   /* Adjust object-position if needed to center Giáp */
   object-position: center 20%;
-  filter: grayscale(20%) brightness(0.7);
+  filter: grayscale(80%) brightness(0.3);
 }
 
 .mesh-overlay {
@@ -148,7 +149,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, var(--bg-dark) 0%, rgba(10, 10, 10, 0.4) 50%, transparent 100%);
+  background: linear-gradient(to top, var(--bg-dark) 0%, transparent 40%, rgba(10, 10, 10, 0.8) 100%);
 }
 
 .hero-content-cinematic {
@@ -175,6 +176,14 @@ section {
   color: var(--text-muted);
   font-weight: 300;
   margin-bottom: 4rem;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: var(--accent);
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
 }
 
 .hero-social-links {
@@ -213,7 +222,7 @@ section {
   background: var(--accent);
   color: var(--bg-dark);
   border-color: var(--accent);
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.1);
   box-shadow: 0 10px 25px var(--accent-glow);
 }
 
@@ -296,13 +305,67 @@ section {
   margin-bottom: 2.5rem;
 }
 
-/* Cinematic Gallery (Now) */
+/* Cinematic Gallery (Now) & ZigZag Layout */
 .now-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 5rem;
   align-items: flex-start;
 }
+
+.now-zigzag-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 2rem 0;
+}
+
+.zigzag-row {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.zigzag-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.zigzag-text {
+  flex: 1;
+}
+
+.zigzag-text h3 {
+  color: var(--accent);
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.zigzag-text p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.zigzag-img {
+  flex: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  max-height: 400px;
+  position: relative;
+}
+
+.zigzag-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.zigzag-row:hover .zigzag-img img {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
 
 .now-item {
   margin-bottom: 3.5rem;
@@ -380,6 +443,7 @@ section {
 
   .scroll-hint { display: none; }
   .now-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .zigzag-row, .zigzag-row.reverse { flex-direction: column; gap: 2rem; }
   .hub-nav { justify-content: center; gap: 1.5rem; overflow-x: auto; padding-bottom: 2rem; }
 }
 
@@ -395,6 +459,10 @@ section {
   align-items: center;
   gap: 1.5rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .player-content {
