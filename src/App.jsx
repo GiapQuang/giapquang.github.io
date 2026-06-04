@@ -1,18 +1,27 @@
-import React from "react";
+import Particles from "./components/Particles";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import IdentityHub from "./components/IdentityHub";
+import AboutMe from "./components/AboutMe";
+import Philosophy from "./components/Philosophy";
+import CurrentLife from "./components/CurrentLife";
+import MemoryGallery from "./components/MemoryGallery";
+import PersonalLinks from "./components/PersonalLinks";
 import MusicPlayer from "./components/MusicPlayer";
 
 function App() {
   return (
     <div className="app">
+      <Particles />
+      <Navbar />
       <main>
         <Hero />
-        <IdentityHub />
-        <div className="music-player-fixed">
-          <MusicPlayer />
-        </div>
+        <AboutMe />
+        <Philosophy />
+        <CurrentLife />
+        <MemoryGallery />
+        <PersonalLinks />
       </main>
+      <MusicPlayer />
     </div>
   );
 }
